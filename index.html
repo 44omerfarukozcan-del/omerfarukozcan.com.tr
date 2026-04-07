@@ -1,229 +1,432 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sana Özel ✨</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dil Evreni | Profesyonel Kütüphane ve Dil Rehberi</title>
+    <style>
+        :root {
+            --primary: #0f172a; 
+            --secondary: #1e293b;
+            --sidebar-bg: #f8fafc;
+            --bg: #f1f5f9;
+            --text: #334155;
+            --light-border: #e2e8f0;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+        }
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-}
+        body {
+            margin: 0; font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg); color: var(--text);
+            display: flex; flex-direction: column; height: 100vh; overflow: hidden;
+        }
 
-body {
-    background: radial-gradient(circle at 50% 50%, #2a081a 0%, #0a0508 100%);
-    color: #e0e0e0;
-    overflow-x: hidden;
-}
+        /* Üst Menü */
+        header {
+            background: var(--primary); color: white; padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); z-index: 100;
+        }
+        .logo { font-size: 1.5rem; font-weight: 900; letter-spacing: 1px; }
+        .logo span { color: #60a5fa; }
+        nav { display: flex; gap: 1rem; }
+        nav button {
+            background: rgba(255,255,255,0.1); border: none; color: white;
+            padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer; font-weight: 500; transition: 0.2s;
+        }
+        nav button.active, nav button:hover { background: var(--accent); }
 
-/* HERO BÖLÜMÜ */
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
+        /* Ana Düzen (Sidebar + İçerik) */
+        .layout { display: flex; flex: 1; overflow: hidden; }
 
-.azra {
-    font-size: 100px;
-    font-weight: 800;
-    letter-spacing: 20px;
-    color: #ffffff;
-    text-shadow: 
-        0 0 10px #ff0055, 
-        0 0 20px #ff0055, 
-        0 0 40px #ff0055, 
-        0 0 80px #e6004c;
-    animation: pulseGlow 3s infinite alternate;
-    margin-left: 20px;
-}
+        /* Sol Menü (Dokümantasyon tarzı) */
+        .sidebar {
+            width: 320px; background: var(--sidebar-bg); border-right: 1px solid var(--light-border);
+            overflow-y: auto; padding: 1.5rem; flex-shrink: 0; box-shadow: 2px 0 10px rgba(0,0,0,0.02);
+        }
+        .sidebar h3 { margin-top: 0; color: var(--accent); font-size: 1.05rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid var(--light-border); padding-bottom: 0.5rem;}
+        .topic-list { list-style: none; padding: 0; margin: 0 0 2.5rem 0; }
+        .topic-item {
+            padding: 0.7rem 1rem; margin-bottom: 0.3rem; border-radius: 6px;
+            cursor: pointer; transition: 0.2s; color: #475569; font-weight: 600; font-size: 0.95rem;
+        }
+        .topic-item:hover { background: #e2e8f0; color: var(--primary); }
+        .topic-item.active { background: var(--accent); color: white; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);}
 
-@keyframes pulseGlow {
-    from { text-shadow: 0 0 15px #ff0055, 0 0 30px #ff0055; transform: scale(0.98); }
-    to { text-shadow: 0 0 25px #ff0055, 0 0 50px #ff0055, 0 0 80px #e6004c; transform: scale(1.02); }
-}
+        /* Sağ İçerik Alanı */
+        .content-area {
+            flex: 1; padding: 2rem 4rem; overflow-y: auto; scroll-behavior: smooth; background: #ffffff;
+        }
+        .page { display: none; animation: fadeIn 0.3s ease; max-width: 1000px; margin: 0 auto; }
+        .page.active { display: block; }
 
-.subtitle {
-    margin-top: 20px;
-    color: #a0a0a0;
-    font-size: 19px;
-    font-weight: 300;
-    letter-spacing: 2px;
-}
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-/* KARTLARIN BULUNDUĞU BÖLÜM */
-.section {
-    max-width: 800px;
-    margin: auto;
-    padding: 60px 25px;
-}
+        h1 { color: var(--primary); font-size: 2.2rem; margin-top: 0; margin-bottom: 1rem; border-bottom: 3px solid var(--accent); padding-bottom: 0.5rem; display: inline-block;}
+        .desc-box { background: #f8fafc; padding: 1.5rem; border-left: 5px solid var(--accent); border-radius: 6px; margin-bottom: 2.5rem; font-size: 1.1rem; color: #475569;}
+        
+        /* Detaylı Kural Kutuları */
+        .rule-item { 
+            background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; 
+            padding: 2rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .rule-item:hover { transform: translateY(-2px); box-shadow: 0 8px 15px rgba(0,0,0,0.05); border-color: #cbd5e1;}
+        
+        .rule-item h4 { 
+            color: var(--primary); font-size: 1.3rem; margin: 0 0 1rem 0; 
+            display: flex; align-items: center; gap: 10px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 0.8rem;
+        }
+        .rule-item h4::before { content: '📌'; font-size: 1.4rem; }
+        
+        .rule-item .explanation { 
+            color: #334155; font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.8;
+        }
+        
+        .rule-item .example { 
+            background: #eff6ff; padding: 1.2rem; border-radius: 8px; border-left: 5px solid #3b82f6; 
+            color: #1e3a8a; font-size: 1.05rem; display: flex; flex-direction: column; gap: 0.5rem;
+        }
 
-.card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    padding: 40px;
-    border-radius: 24px;
-    margin-bottom: 40px;
-    border: 1px solid rgba(255, 0, 85, 0.2);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-    transition: transform 0.4s ease, border 0.4s ease;
-}
+        /* Wikipedia Çekme Butonu */
+        .fetch-wiki-btn {
+            background: #f59e0b; color: white; border: none; padding: 1rem 2rem; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; margin-top: 3rem; transition: 0.3s; width: 100%; justify-content: center;
+        }
+        .fetch-wiki-btn:hover { background: #d97706; }
+        .wiki-result { margin-top: 1.5rem; padding: 2rem; background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px; display: none; line-height: 1.8; font-size: 1.05rem;}
+        .wiki-result h2 { color: #b45309; font-size: 1.5rem; margin-top: 0; border-bottom: 1px solid #fcd34d; padding-bottom: 10px;}
+        .wiki-result p { color: #451a03; }
+        .wiki-result .mw-empty-elt, .wiki-result .infobox, .wiki-result .thumb, .wiki-result .mw-editsection { display: none; } 
 
-.card:hover {
-    transform: translateY(-8px);
-    border: 1px solid rgba(255, 0, 85, 0.5);
-    box-shadow: 0 20px 40px rgba(255, 0, 85, 0.15);
-}
+        /* API Araçları (Sözlük & Kütüphane) */
+        .search-box { display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .search-box input { flex: 1; padding: 1.2rem; font-size: 1.1rem; border: 2px solid var(--light-border); border-radius: 8px; outline: none; }
+        .search-box input:focus { border-color: var(--accent); }
+        .search-box button { background: var(--accent); color: white; border: none; padding: 0 2.5rem; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.1rem;}
+        
+        .result-card { background: white; border: 1px solid var(--light-border); border-top: 5px solid var(--accent); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 1rem;}
+        .loading { color: var(--accent); font-weight: bold; text-align: center; margin: 2rem 0; font-size: 1.2rem;}
 
-h2 {
-    color: #ff3377;
-    margin-bottom: 20px;
-    font-size: 1.6em;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
+        /* Kitaplık Grid */
+        .book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 2rem; }
+        .book-card { border: 1px solid var(--light-border); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; transition: 0.3s; background: white;}
+        .book-card:hover { transform: translateY(-8px); box-shadow: 0 12px 20px rgba(0,0,0,0.08); border-color: var(--accent); }
+        .book-cover { height: 300px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; color: #94a3b8; }
+        .book-info { padding: 1.5rem; flex: 1; display: flex; flex-direction: column;}
+        .book-info h4 { margin: 0 0 0.8rem 0; font-size: 1.1rem; color: var(--primary); line-height: 1.4;}
+        .book-info p { margin: 0; font-size: 0.95rem; color: #64748b; font-style: italic;}
 
-p {
-    font-size: 1.1em;
-    line-height: 1.8;
-    color: #cccccc;
-    font-weight: 300;
-}
-
-/* AKROSTİŞ BÖLÜMÜ */
-.acrostic p {
-    margin: 15px 0;
-    font-size: 1.15em;
-}
-
-.acrostic span {
-    font-size: 30px;
-    font-weight: 800;
-    color: #ff0055;
-    text-shadow: 0 0 15px rgba(255, 0, 85, 0.6);
-    margin-right: 5px;
-}
-
-/* BUTON TASARIMI */
-button {
-    margin-top: 30px;
-    padding: 16px 32px;
-    border: none;
-    background: linear-gradient(45deg, #ff0055, #ff4081);
-    color: white;
-    font-size: 17px;
-    font-weight: 600;
-    border-radius: 30px;
-    cursor: pointer;
-    box-shadow: 0 8px 20px rgba(255, 0, 85, 0.4);
-    transition: all 0.3s ease;
-}
-
-button:hover {
-    transform: scale(1.05) translateY(-3px);
-    box-shadow: 0 12px 25px rgba(255, 0, 85, 0.6);
-}
-
-/* KALP ANİMASYONU */
-.heart {
-    position: fixed;
-    bottom: -20px;
-    color: #ff0055;
-    text-shadow: 0 0 10px #ff0055;
-    animation: float 5s ease-in infinite;
-    z-index: -1;
-    opacity: 0.4;
-}
-
-@keyframes float {
-    0% { transform: translateY(0) scale(1); opacity: 0.6; }
-    100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
-}
-
-footer {
-    text-align: center;
-    padding: 50px;
-    color: #555;
-    font-style: italic;
-    letter-spacing: 2px;
-}
-</style>
+        /* Mobil Uyum */
+        @media (max-width: 768px) {
+            .layout { flex-direction: column; overflow: auto; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--light-border); padding: 1.5rem; }
+            .content-area { padding: 1.5rem; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="hero">
-    <div class="azra">AZRA</div>
-    <p class="subtitle">Burası sana ait ufak bir ayrıntı.</p>
-</div>
+    <header>
+        <div class="logo">Dil <span>Evreni</span></div>
+        <nav>
+            <button onclick="switchTab('rehber')" class="active" id="btn-rehber">📖 Ansiklopedik Rehber</button>
+            <button onclick="switchTab('sozluk')" id="btn-sozluk">🔍 TDK Sözlük</button>
+            <button onclick="switchTab('kutuphane')" id="btn-kutuphane">📚 Dünya Kütüphanesi</button>
+        </nav>
+    </header>
 
-<div class="section">
+    <div class="layout">
+        
+        <aside class="sidebar" id="sidebar">
+            <h3>Yazım Kuralları</h3>
+            <ul class="topic-list" id="menu-yazim"></ul>
 
-    <div class="card">
-        <h2>Ufak Bir İtiraf</h2>
-        <p>
-            Azra,<br><br>
-            Bu site aslında çok büyük bir şey değil.<br>
-            Sadece sana ait küçük bir yer gibi düşün.<br><br>
-            Henüz tam anlamıyla yan yana gelmemiş olabiliriz.<br>
-            Sadece birkaç fotoğraf ve tatlı bir sohbet.<br><br>
-            Ama bazen insan birinin o güzel enerjisini ekranın ötesinden bile net bir şekilde hissedebiliyor.
-        </p>
+            <h3>Noktalama İşaretleri</h3>
+            <ul class="topic-list" id="menu-noktalama"></ul>
+
+            <h3>Dil Bilgisi (Gramer)</h3>
+            <ul class="topic-list" id="menu-dilbilgisi"></ul>
+        </aside>
+
+        <main class="content-area">
+            
+            <div id="rehber" class="page active">
+                <div id="rehber-icerik">
+                    <h1 style="font-size: 3rem; border:none; margin-top:2rem;">Hoş Geldiniz</h1>
+                    <p class="desc-box" style="font-size: 1.3rem;">Sol taraftaki menüden çalışmak istediğiniz konuyu seçin. Eksiksiz kurallar, TDK uyarıları ve detaylı örnek analizleri burada açılacaktır.</p>
+                </div>
+            </div>
+
+            <div id="sozluk" class="page">
+                <h1>TDK Canlı Sözlük</h1>
+                <p class="desc-box">Türkçedeki tüm kelimeleri anlık olarak resmi TDK veritabanından sorgulayın.</p>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Anlamını aradığınız kelimeyi yazın..." onkeypress="if(event.key === 'Enter') fetchTDK()">
+                    <button onclick="fetchTDK()">Ara</button>
+                </div>
+                <div id="tdk-loading" class="loading" style="display:none;">TDK veritabanı taranıyor... ⏳</div>
+                <div id="tdk-results"></div>
+            </div>
+
+            <div id="kutuphane" class="page">
+                <h1>Dünya Kütüphanesi (OpenLibrary)</h1>
+                <p class="desc-box">Milyonlarca kitabı ve yazarı dünyanın en büyük açık kaynaklı kütüphanesinden arayın.</p>
+                <div class="search-box">
+                    <input type="text" id="bookInput" placeholder="Kitap veya yazar adı yazın..." onkeypress="if(event.key === 'Enter') fetchBooks()">
+                    <button onclick="fetchBooks()">Kitap Bul</button>
+                </div>
+                <div id="book-loading" class="loading" style="display:none;">Dünya kütüphanesi taranıyor... ⏳</div>
+                <div class="book-grid" id="book-results"></div>
+            </div>
+
+        </main>
     </div>
 
-    <div class="card">
-        <h2>Şifreli Not</h2>
-        <div class="acrostic">
-            <p><span>A</span>slında seni anlatmaya yetmez bu sözler,</p>
-            <p><span>Z</span>aten bazen bir bakış içinde çok şey gizler.</p>
-            <p><span>R</span>astgele karşıma çıkmış gibi görünsen de,</p>
-            <p><span>A</span>klımda kalan en net detay o güzel gözler.</p>
-        </div>
-    </div>
+    <script>
+        // --- İÇİ TAMAMEN DOLU, DETAYLI VERİTABANI ---
+        const db = {
+            yazim: [
+                { 
+                    id: "y1", title: "Büyük Harflerin Kullanımı", 
+                    desc: "Cümle başları, özel isimler, unvanlar ve tarihi olaylarda büyük harf kullanımı.", 
+                    items: [
+                        { rule: "Özel İsimler, Akrabalık Adları ve Unvanlar", exp: "Kişi adları ve soyadları büyük harfle başlar. Kişi adlarından önce ve sonra gelen unvanlar, saygı sözleri ve lakaplar büyük başlar. Ancak akrabalık bildiren kelimeler KÜÇÜK harfle başlarken, bu kelimeler lakap haline gelirse BÜYÜK yazılır.", ex: "<strong>Doğru Unvan:</strong> Sayın Prof. Dr. Hasan Bey.<br><strong>Doğru Akrabalık:</strong> Ayşe teyze, Ali dayı.<br><strong>Lakaplaşmış:</strong> Nene Hatun, Müslüm Baba." },
+                        { rule: "Kurum, Kuruluş ve Kurul Adları", exp: "Devlete veya özel sektöre ait tüm resmi kurum, dernek ve vakıf adlarının HER BİR KELİMESİ büyük harfle başlar. TDK kuralına göre bu kelimelere gelen çekim ekleri KESME İŞARETİYLE AYRILMAZ.", ex: "<strong>Kurum:</strong> Türkiye Büyük Millet Meclisi, Türk Dil Kurumu.<br><strong>Ek Getirme:</strong> Türk Dil Kurumuna (TDK'ya değil, kesmesiz yazılır)." },
+                        { rule: "Tarihi Olay, Çağ ve Yön Adları", exp: "Tarihi olaylar ve çağlar büyük harfle başlar. Yön bildiren kelimeler (kuzey, güney vb.) bir bölge adından ÖNCE gelirse büyük, SONRA gelirse küçük yazılır.", ex: "<strong>Tarih:</strong> Kurtuluş Savaşı, Cilalı Taş Devri.<br><strong>Yönler:</strong> Kuzey Anadolu'da yağış var. (Büyük) / Anadolu'nun kuzeyinde yağış var. (Küçük)" }
+                    ], wikiQuery: "Büyük_harf" 
+                },
+                { 
+                    id: "y2", title: "Bağlaç ve Eklerin Yazımı (de, ki, mi)", 
+                    desc: "En çok karıştırılan 'de', 'ki' ve 'mi' kuralının detaylı analizi.", 
+                    items: [
+                        { rule: "Bulunma Hal Eki (-de) vs. Bağlaç Olan (de)", exp: "Bağlaç olan 'de/da' ayrı bir kelimedir ve ayrı yazılır. Cümleden çıkarıldığında cümlenin anlamı bozulmaz. Bulunma hal eki olan '-de/-da' kelimeye BİTİŞİK yazılır ve cümleden çıkarsa cümle anlamsızlaşır.", ex: "<strong>Bağlaç:</strong> Kardeşi de bizimle tatile gelecekmiş. (Çıkar: Kardeşi bizimle tatile gelecekmiş - Anlam bozulmaz).<br><strong>Ek:</strong> Eşyalarımı arabada unuttum. (Çıkar: Eşyalarımı araba unuttum - YANLIŞ)." },
+                        { rule: "Ki Bağlacı ve İlgi Zamiri Olan -ki", exp: "Bağlaç olan 'ki' ayrı bir sözcüktür. Ancak ilgi zamiri (benimki) ve sıfat yapan (bahçedeki) '-ki' bitişik yazılır. İSTİSNA: Bazı bağlaçlar zamanla kalıplaşmış ve BİTİŞİK yazılmaya başlanmıştır (SOMBAHÇEMİ).", ex: "<strong>Bağlaç:</strong> Duydum ki unutmuşsun beni.<br><strong>İstisnalar:</strong> Sanki, Oysaki, Mademki, Belki, Halbuki, Çünkü, Meğerki, İllaki." },
+                        { rule: "Soru Eki Olan 'mı, mi, mu, mü'", exp: "Kendisinden önceki kelimeden her zaman ayrı yazılır. Ancak kendisinden sonra gelen şahıs ekleri, bu soru ekine bitişik yazılır.", ex: "<strong>Örnek:</strong> Benimle sinemaya gelecek misin? / Bu evi güzel mi güzel yapmışlar." }
+                    ], wikiQuery: "Türkçe_dilbilgisi" 
+                },
+                { 
+                    id: "y3", title: "Bitişik ve Ayrı Yazılan Kelimeler", 
+                    desc: "Birleşik sözcüklerin yazımında ses olaylarının etkisi.", 
+                    items: [
+                        { rule: "Ses Olayı Olan Kelimeler Bitişik Yazılır", exp: "İki kelime birleşirken ses düşmesine veya ses türemesine (harf artması) uğruyorsa, bu kelimeler kesinlikle BİTİŞİK yazılır.", ex: "<strong>Düşme:</strong> Kayıp + olmak = Kaybolmak / Şükür + etmek = Şükretmek.<br><strong>Türeme:</strong> His + etmek = Hissetmek / Af + etmek = Affetmek." },
+                        { rule: "Ses Olayı Olmayanlar Ayrı Yazılır", exp: "Birleşme sırasında hiçbir harf düşmüyor veya türemiyorsa kelimeler AYRI yazılır.", ex: "<strong>Örnekler:</strong> Terk etmek, fark etmek, arz etmek, dans etmek." },
+                        { rule: "Kurallı Birleşik Fiiller Daima Bitişiktir", exp: "Yeterlilik (ebilmek), tezlik (ivermek), sürerlik (edurmak) ve yaklaşma (eyazmak) fiilleri daima bitişik yazılır.", ex: "<strong>Örnekler:</strong> Yapabilmek, gelivermek, bakakalmak, düşeyazmak." }
+                    ], wikiQuery: "Birleşik_kelime" 
+                }
+            ],
+            noktalama: [
+                { 
+                    id: "n1", title: "Nokta (.)", 
+                    desc: "Tamamlanmış yargılarda, sayılarda ve tarihlerde nokta kullanımı.", 
+                    items: [
+                        { rule: "Cümle Sonunda Nokta", exp: "Anlamca tamamlanmış, yüklemi bulunan cümlelerin sonuna konur.", ex: "<strong>Örnek:</strong> Türk Dil Kurumu 1932 yılında kurulmuştur." },
+                        { rule: "Tarih ve Saatlerin Arasında", exp: "Tarihleri yazarken gün, ay ve yıl arasına SADECE nokta konur. Eğik çizgi de konabilir ama aralara virgül vs. konmaz. Saat ve dakikayı ayırmak için de SADECE nokta kullanılır (İki nokta konmaz).", ex: "<strong>Saat:</strong> Toplantı 14.30'da başlayacak. (14:30 YANLIŞTIR).<br><strong>Tarih:</strong> 29.10.1923" },
+                        { rule: "Sıra Bildiren Sayılarda", exp: "Sayılardan sonra '-ıncı, -inci' eklerinin yerine kullanılır.", ex: "<strong>Örnek:</strong> 3. (üçüncü), 15. Yüzyıl, II. Mehmet." }
+                    ], wikiQuery: "Nokta_(noktalama_işareti)" 
+                },
+                { 
+                    id: "n2", title: "Virgül (,) (Tüm Detaylarıyla)", 
+                    desc: "Türkçenin en işlevsel işareti nerede kullanılır, nerede yasaktır?", 
+                    items: [
+                        { rule: "Eş Görevli Kelimeler ve Sıralı Cümleler", exp: "Birbiri ardınca sıralanan aynı görevdeki kelimelerin arasına konur. Ayrıca birden fazla yüklemi olan (birden fazla iş anlatan) cümleleri birbirinden ayırmak için kullanılır.", ex: "<strong>Eş Görevli:</strong> Pazardan elma, armut, portakal aldım.<br><strong>Sıralı Cümle:</strong> Umduk, bekledik, düşündük." },
+                        { rule: "Yüklemden Uzak Düşen Özne ve Ara Sözler", exp: "Uzun cümlelerde yüklemden çok uzak kalmış özneyi vurgulamak için özneden sonra konur. Ayrıca ek bilgi veren ara sözlerin başına ve sonuna konur.", ex: "<strong>Özne:</strong> Saniye Hanım, merdivenleri nefes nefese ağır ağır çıktı.<br><strong>Ara Söz:</strong> Zemin bu renge dönüşünce, bir an için de olsa, belirginliğini yitirdi." },
+                        { rule: "VİRGÜLÜN KULLANILAMAYACAĞI (YASAK) YERLER", exp: "TDK kuralına göre; 've, veya, yahut, ya...ya' bağlaçlarından önce ve sonra virgül konmaz. Şart ekinden (-sa/-se) sonra virgül konmaz. İsim ve sıfat tamlamalarının arasına virgül konmaz.", ex: "<strong>Hata 1:</strong> Ya bu deveyi güdersin, ya bu diyardan gidersin. (YANLIŞ).<br><strong>Hata 2:</strong> Gözlerin yaşarırsa, beni hatırla. (YANLIŞ)." }
+                    ], wikiQuery: "Virgül" 
+                },
+                { 
+                    id: "n3", title: "Noktalı Virgül (;) ve İki Nokta (:)", 
+                    desc: "Gruplandırma ve açıklama işaretlerinin farkı.", 
+                    items: [
+                        { rule: "Noktalı Virgül: Grupları ve Sıralı Cümleleri Ayırır", exp: "Cümle içinde zaten VİRGÜLLERLE ayrılmış tür veya takımları birbirinden ayırmak için kullanılır. Ögeleri arasında virgül bulunan sıralı cümleleri ayırır.", ex: "<strong>Grup:</strong> Erkek çocuklara Doğan, Tuğrul; kız çocuklara İnci, Çiçek adı verilir.<br><strong>Sıralı:</strong> At ölür, meydan kalır; yiğit ölür, şan kalır." },
+                        { rule: "İki Nokta: Açıklama ve Örnek Verme", exp: "Kendisinden sonra ÖRNEK verilecek veya AÇIKLAMA yapılacak cümlenin sonuna konur. Örnekler cins isimse küçük başlar, açıklama cümle şeklindeyse büyük başlar.", ex: "<strong>Örnek:</strong> Milli Edebiyat temsilcileri şunlardır: Ömer Seyfettin, Halide Edip...<br><strong>Açıklama:</strong> Sana tek bir tavsiyem var: Her zaman dürüst ol." }
+                    ], wikiQuery: "Noktalı_virgül" 
+                },
+                {
+                    id: "n4", title: "Kesme İşareti (')",
+                    desc: "Özel isimlere gelen eklerin ayrılması.",
+                    items: [
+                        { rule: "Özel İsimlere Gelen Çekim Ekleri", exp: "Kişi adlarına, şehir adlarına, ülke adlarına gelen iyelik ve durum ekleri kesme ile ayrılır.", ex: "<strong>Örnek:</strong> Türkiye'nin başkenti Ankara'dır. Atatürk'ü anıyoruz." },
+                        { rule: "KURUM İSİMLERİNDE KESME İŞARETİ KULLANILMAZ", exp: "TDK'nin en önemli kuralıdır: Kurum, kuruluş, iş yeri ve kurul adlarına gelen ekler KESİNLİKLE ayrılmaz.", ex: "<strong>Doğru Kullanım:</strong> Türkiye Büyük Millet Meclisine, Türk Dil Kurumunun, Bakanlar Kurulunun." },
+                        { rule: "Yapım Ekleri ve Çoğul Ekleri Ayrılmaz", exp: "Özel isimlere gelen yapım ekleri (-lı, -lik, -ci) ve çoğul ekleri (-ler, -lar) ayrılmaz. Bunlardan sonra gelen diğer ekler de ayrılmaz.", ex: "<strong>Örnek:</strong> Türklük, Türkçenin, Konyalıdan, Ahmetlere (Ailesi anlamında)." }
+                    ], wikiQuery: "Kesme_işareti"
+                }
+            ],
+            dilbilgisi: [
+                { 
+                    id: "d1", title: "Ses Bilgisi (Sertleşme, Yumuşama, Düşme)", 
+                    desc: "Kelimelerin aldığı eklerle uğradığı ses değişimleri.", 
+                    items: [
+                        { rule: "Ünsüz Benzeşmesi (Sertleşme)", exp: "Sonu SERT ünsüzle (f,s,t,k,ç,ş,h,p - Fıstıkçı Şahap) biten bir kelimeye c,d,g ile başlayan ek gelirse, ekin başındaki harfler ç,t,k'ye dönüşür.", ex: "<strong>Örnek:</strong> Ağaç-dan -> Ağaçtan / Kitap-cı -> Kitapçı / 1923-de -> 1923'te." },
+                        { rule: "Ünsüz Değişimi (Yumuşama)", exp: "Sonu p,ç,t,k ile biten bir kelimeye ÜNLÜ harf ile başlayan ek gelirse, kelimenin sonundaki harfler b,c,d,ğ'ye dönüşür.", ex: "<strong>Örnek:</strong> Dolap-ı -> Dolabı / Renk-i -> Rengi / Ağaç-a -> Ağaca." },
+                        { rule: "Ünlü Düşmesi ve Ünlü Daralması", exp: "İki heceli kelimelere ünlüyle başlayan ek gelince ikinci hecedeki dar ünlü düşer. Sonu 'a, e' ile biten fiillere '-yor' gelince bu ünlüler daralarak 'ı, i, u, ü' olur.", ex: "<strong>Düşme:</strong> Akıl-ı -> Aklı / Karın-ı -> Karnı.<br><strong>Daralma:</strong> Bekle-yor -> Bekliyor / Başla-yor -> Başlıyor." }
+                    ], wikiQuery: "Ses_olayı" 
+                },
+                { 
+                    id: "d2", title: "Sözcük Türleri (İsim, Sıfat, Zamir, Zarf)", 
+                    desc: "Kelimelerin cümle içindeki görevleri.", 
+                    items: [
+                        { rule: "İsim (Ad) ve Sıfat (Ön Ad)", exp: "İsim, varlıkları karşılayan kelimelerdir. Sıfat ise isimlerin önüne gelerek onları renk, durum, sayı ve biçim yönünden niteleyen kelimelerdir.", ex: "<strong>İsim:</strong> Masa, sevgi, Ankara, elma.<br><strong>Sıfat:</strong> Kırmızı elma, yuvarlak masa, üç kişi." },
+                        { rule: "Zamir (Adıl) ve Zarf (Belirteç)", exp: "Zamir, ismin yerini tutan kelimelerdir (ben, sen, o). Zarf ise fiilleri, fiilimsileri ve sıfatları durum, zaman, miktar yönünden niteleyen kelimelerdir.", ex: "<strong>Zamir:</strong> O dün bize geldi. Şunu bana ver.<br><strong>Zarf:</strong> Hızlı koştu (Durum), Dün geldi (Zaman), Çok yoruldum (Miktar)." }
+                    ], wikiQuery: "Sözcük_türü" 
+                },
+                { 
+                    id: "d3", title: "Cümlenin Ögeleri", 
+                    desc: "Yüklem, Özne, Nesne ve Tümleçlerin bulunması.", 
+                    items: [
+                        { rule: "Yüklem ve Özne (Temel Ögeler)", exp: "Yüklem, cümlenin yargısını, işini bildiren temel kelimedir. Özne ise yüklemin bildirdiği işi yapan kişidir. Yükleme 'Kim?' ve 'Ne?' soruları sorularak özne bulunur.", ex: "<strong>Cümle:</strong> Çocuklar bahçede oynuyor.<br><strong>Yüklem:</strong> oynuyor.<br><strong>Özne (Kim oynuyor?):</strong> Çocuklar." },
+                        { rule: "Nesne ve Tümleçler (Yardımcı Ögeler)", exp: "Nesne, öznenin yaptığı işten etkilenendir (Neyi, Kimi). Dolaylı tümleç, yer-yön bildirir (Nerede, Nereye). Zarf tümleci, zaman ve durum bildirir (Ne zaman, Nasıl).", ex: "<strong>Cümle:</strong> Ali, kitabı dün kütüphaneden hızlıca aldı.<br><strong>Nesne:</strong> kitabı.<br><strong>Dol. Tümleç:</strong> kütüphaneden.<br><strong>Zarf Tümleci:</strong> dün, hızlıca." }
+                    ], wikiQuery: "Cümle_ögeleri" 
+                }
+            ]
+        };
 
-    <div class="card">
-        <h2>Son Bir Not</h2>
-        <p>
-            Sıradan mesajlaşmalar yerine kendi tarzımda sana böyle ufak bir detay bırakmak istedim.<br><br>
-            Şimdilik bu dijital sayfa ilk anımız olarak burada kalsın. Kim bilir, belki ileride çok daha güzel anıları beraber biriktip buraya ekleyip ölümsüzleştiriz.<br><br>
-            Bakalım zaman bize neler gösterecek.
-        </p>
-        <button onclick="mesaj()">Şimdi normal sohbete dönebiliriz 🙂</button>
-    </div>
+        // --- SOL MENÜYÜ OLUŞTURMA ---
+        function initMenu() {
+            ['yazim', 'noktalama', 'dilbilgisi'].forEach(category => {
+                const ul = document.getElementById(`menu-${category}`);
+                db[category].forEach(topic => {
+                    const li = document.createElement('li');
+                    li.className = 'topic-item';
+                    li.textContent = topic.title;
+                    li.onclick = () => openTopic(topic, li);
+                    ul.appendChild(li);
+                });
+            });
+        }
 
-</div>
+        // --- İÇERİK GÖSTERME (TIKLANAN KONU) ---
+        function openTopic(topic, element) {
+            document.querySelectorAll('.topic-item').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
 
-<footer>
-    — Ömer
-</footer>
+            let rulesHtml = '';
+            topic.items.forEach(item => {
+                rulesHtml += `
+                    <div class="rule-item">
+                        <h4>${item.rule}</h4>
+                        <div class="explanation">${item.exp}</div>
+                        <div class="example"><strong>📚 Örnek ve Analiz:</strong> <br>${item.ex}</div>
+                    </div>
+                `;
+            });
 
-<script>
-function mesaj(){
-    alert("O zaman DM'de görüşürüz :)")
-}
+            const contentHtml = `
+                <h1>${topic.title}</h1>
+                <p class="desc-box">${topic.desc}</p>
+                ${rulesHtml}
+                <button class="fetch-wiki-btn" onclick="fetchWikipedia('${topic.wikiQuery}')">
+                    <span>🌐</span> Bu Konunun Akademik (Wikipedia) Ansiklopedisini İndir
+                </button>
+                <div id="wiki-box" class="wiki-result"></div>
+            `;
+            document.getElementById('rehber-icerik').innerHTML = contentHtml;
+        }
 
-function heart(){
-    const h = document.createElement("div")
-    h.className = "heart"
-    h.innerHTML = "❤"
-    h.style.left = Math.random() * 100 + "vw"
-    h.style.fontSize = (15 + Math.random() * 20) + "px"
-    h.style.animationDuration = (4 + Math.random() * 4) + "s"
-    document.body.appendChild(h)
-    
-    setTimeout(() => {
-        h.remove()
-    }, 6000)
-}
+        // --- WIKIPEDIA API ENTEGRASYONU ---
+        async function fetchWikipedia(query) {
+            const wikiBox = document.getElementById('wiki-box');
+            wikiBox.style.display = 'block';
+            wikiBox.innerHTML = '<em style="color:#b45309;">Wikipedia veritabanına bağlanılıyor, lütfen bekleyin...</em>';
 
-setInterval(heart, 400)
-</script>
+            try {
+                const url = `https://tr.wikipedia.org/w/api.php?action=parse&page=${encodeURIComponent(query)}&prop=text&format=json&origin=*&redirects=1`;
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                if (data.error || !data.parse) {
+                    wikiBox.innerHTML = '<span style="color:#dc2626; font-weight:bold;">Wikipedia\'da bu başlığa ait açık bir makale bulunamadı. Lütfen başka bir konuyu deneyin.</span>';
+                } else {
+                    wikiBox.innerHTML = `<h2>📖 ${query.replace(/_/g, ' ')} Makalesi (Wikipedia)</h2>` + data.parse.text['*'];
+                }
+            } catch (err) {
+                wikiBox.innerHTML = '<span style="color:#dc2626; font-weight:bold;">Bağlantı hatası oluştu. İnternetinizi kontrol edin.</span>';
+            }
+        }
 
+        // --- SEKMELER ARASI GEÇİŞ ---
+        function switchTab(tabId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            
+            document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + tabId).classList.add('active');
+
+            document.getElementById('sidebar').style.display = (tabId === 'rehber') ? 'block' : 'none';
+        }
+
+        // --- TDK SÖZLÜK API ---
+        async function fetchTDK() {
+            const input = document.getElementById('searchInput').value.trim();
+            if (!input) return;
+            const res = document.getElementById('tdk-results');
+            const load = document.getElementById('tdk-loading');
+            res.innerHTML = ''; load.style.display = 'block';
+
+            try {
+                const response = await fetch(`https://sozluk.gov.tr/gts?ara=${input}`);
+                const data = await response.json();
+                load.style.display = 'none';
+
+                if (data.error) {
+                    res.innerHTML = `<div class="result-card" style="border-color:#ef4444;"><h3 style="color:#ef4444; margin:0;">Bulunamadı</h3><p>TDK veritabanında "${input}" kelimesi yok.</p></div>`;
+                    return;
+                }
+                const word = data[0];
+                let html = `<div class="result-card"><h2 style="margin-top:0; color:var(--primary); font-size:2rem;">${word.madde}</h2>`;
+                if(word.anlamlarListe) {
+                    word.anlamlarListe.forEach((a, i) => {
+                        html += `<div style="padding:10px; border-bottom:1px solid #e2e8f0; font-size:1.1rem; color:#334155;"><strong>${i+1}.</strong> ${a.anlam}</div>`;
+                    });
+                }
+                html += `</div>`;
+                res.innerHTML = html;
+            } catch (err) {
+                load.style.display = 'none'; res.innerHTML = `<div style="color:#ef4444; font-weight:bold; padding: 2rem;">Sunucu Bağlantı Hatası. İnternetinizi kontrol edin.</div>`;
+            }
+        }
+
+        // --- OPEN LIBRARY (KİTAPLIK) API ---
+        async function fetchBooks() {
+            const input = document.getElementById('bookInput').value.trim();
+            if (!input) return;
+            const grid = document.getElementById('book-results');
+            const load = document.getElementById('book-loading');
+            grid.innerHTML = ''; load.style.display = 'block';
+
+            try {
+                const response = await fetch(`https://openlibrary.org/search.json?q=${encodeURIComponent(input)}&limit=12`);
+                const data = await response.json();
+                load.style.display = 'none';
+
+                if (data.docs.length === 0) {
+                    grid.innerHTML = '<p style="grid-column:1/-1; text-align:center; font-size:1.1rem;">Aradığınız kriterde kitap bulunamadı.</p>'; return;
+                }
+
+                data.docs.forEach(book => {
+                    const title = book.title;
+                    const author = book.author_name ? book.author_name[0] : 'Bilinmeyen Yazar';
+                    const coverId = book.cover_i;
+                    const coverUrl = coverId ? `https://covers.openlibrary.org/b/id/${coverId}-M.jpg` : null;
+
+                    grid.innerHTML += `
+                        <div class="book-card">
+                            <div class="book-cover">${coverUrl ? `<img src="${coverUrl}" style="width:100%; height:100%; object-fit:cover;">` : 'Kapak Görseli Yok'}</div>
+                            <div class="book-info">
+                                <h4>${title}</h4>
+                                <p>✍️ ${author}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+            } catch (err) {
+                load.style.display = 'none'; grid.innerHTML = '<p style="color:#ef4444; grid-column:1/-1; text-align:center;">Bağlantı Hatası oluştu.</p>';
+            }
+        }
+
+        // Başlangıçta menüyü oluştur
+        window.onload = initMenu;
+
+    </script>
 </body>
 </html>
