@@ -5,251 +5,479 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ömer Faruk Özcan | Software Developer & Founder of Korvex</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'kurumsal-koyu': '#0F172A', 
-                        'kurumsal-gri': '#334155', 
-                        'vurgu-mavi': '#2563EB', 
-                        'arka-plan': '#F8FAFC' 
+                        'brand-dark': '#0f172a',
+                        'brand-blue': '#1d4ed8',
+                        'brand-light': '#f8fafc',
+                        'brand-gray': '#475569',
+                        'border-color': '#e2e8f0'
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Roboto Mono', 'monospace'],
+                        sans: ['Montserrat', 'sans-serif'],
+                        mono: ['Source Code Pro', 'monospace'],
                     }
                 }
             }
         }
     </script>
+    <style>
+        .cv-section { border-left: 2px solid #e2e8f0; padding-left: 2rem; margin-left: 1rem; }
+        .cv-dot::before {
+            content: ''; position: absolute; left: -2.35rem; top: 0.25rem;
+            width: 12px; height: 12px; background-color: #1d4ed8; border-radius: 50%;
+            border: 3px solid #ffffff; box-shadow: 0 0 0 1px #e2e8f0;
+        }
+        .nav-link { position: relative; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; font-weight: 600; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: -4px; left: 0; background-color: #1d4ed8; transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+    </style>
 </head>
-<body class="bg-arka-plan text-kurumsal-gri font-sans antialiased selection:bg-vurgu-mavi selection:text-white">
+<body class="bg-white text-brand-gray font-sans antialiased selection:bg-brand-blue selection:text-white">
 
-    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="font-bold text-xl text-kurumsal-koyu tracking-tight">ÖmerFaruk<span class="text-vurgu-mavi">.Dev</span></div>
-            <div class="hidden md:flex space-x-6 text-sm font-semibold text-kurumsal-gri">
-                <a href="#korvex" class="text-vurgu-mavi hover:underline">Korvex</a>
-                <a href="#dilevreni" class="hover:text-vurgu-mavi transition-colors">dilevreni.com</a>
-                <a href="#egitim" class="hover:text-vurgu-mavi transition-colors">Eğitim</a>
-                <a href="#spor" class="hover:text-vurgu-mavi transition-colors">Spor</a>
-                <a href="#iletisim" class="hover:text-vurgu-mavi transition-colors">İletişim</a>
+    <nav class="bg-white border-b border-border-color sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="font-extrabold text-xl text-brand-dark tracking-tighter">
+                ÖMER FARUK <span class="text-brand-blue">ÖZCAN</span>
             </div>
-            <div class="flex items-center space-x-4">
-                <a href="https://github.com/44omerfarukozcan-del" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-kurumsal-koyu transition-colors">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                </a>
-                <a href="https://www.linkedin.com/in/omerozcn00/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-vurgu-mavi transition-colors">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
+            <div class="hidden md:flex space-x-8 text-brand-dark">
+                <a href="#deneyim" class="nav-link">Deneyim</a>
+                <a href="#yetenekler" class="nav-link">Yetenekler</a>
+                <a href="#projeler" class="nav-link">Projeler</a>
+                <a href="#egitim" class="nav-link">Eğitim</a>
+                <a href="#spor" class="nav-link">Spor & Disiplin</a>
+                <a href="#iletisim" class="nav-link">İletişim</a>
             </div>
         </div>
     </nav>
 
-    <header class="bg-white border-b border-gray-200">
-        <div class="max-w-6xl mx-auto px-6 py-16 md:py-28 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <div class="inline-flex items-center space-x-2 bg-blue-50 text-vurgu-mavi px-3 py-1 rounded-full text-xs font-bold mb-6 border border-blue-100">
-                    <span class="w-2 h-2 rounded-full bg-vurgu-mavi animate-pulse"></span>
-                    <span>Samsun Üniv. Yazılım Geliştirme (2025)</span>
+    <header class="bg-brand-light border-b border-border-color">
+        <div class="max-w-7xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-7">
+                
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <div class="inline-block border border-brand-blue text-brand-blue px-3 py-1 rounded text-xs font-bold tracking-widest uppercase bg-blue-50">
+                        Software Developer & Founder
+                    </div>
+                    <div class="inline-block border border-emerald-600 text-emerald-700 px-3 py-1 rounded text-xs font-bold tracking-widest uppercase bg-emerald-50 relative overflow-hidden">
+                        <span class="absolute top-0 left-0 w-full h-full bg-emerald-100 opacity-50 animate-pulse"></span>
+                        <span class="relative flex items-center"><span class="w-2 h-2 rounded-full bg-emerald-500 mr-2"></span> Staj & İş Fırsatlarına Açık</span>
+                    </div>
                 </div>
-                <h1 class="text-4xl md:text-6xl font-bold text-kurumsal-koyu mb-6 leading-tight">
-                    Mühendislik Ruhu, <br> <span class="text-vurgu-mavi">Korvex Vizyonu.</span>
+
+                <h1 class="text-4xl md:text-5xl font-extrabold text-brand-dark mb-6 leading-tight">
+                    Mühendislik Ruhu. <br> <span class="text-brand-blue">Korvex Vizyonu.</span>
                 </h1>
-                <p class="text-lg mb-8 leading-relaxed text-gray-600">
-                    Akademik altyapımı <strong>Korvex</strong> markası altında profesyonel projelere dönüştürüyorum. Yazılımdaki titizliğimi, sahalardan ve kulüplerden aldığım sportif disiplinle birleştiriyorum.
+                <p class="text-base text-brand-gray leading-relaxed mb-8 max-w-2xl text-justify">
+                    Akademik altyapımı <strong>Korvex</strong> markası altında profesyonel projelere dönüştüren bir yazılım geliştiricisiyim. Samsun Üniversitesi'nde devam eden akademik eğitimimi; sahalardan, imalat atölyelerinden ve spor kulüplerinden aldığım üst düzey disiplinle harmanlıyorum. Hem dijital ürün mimarisinde hem de operasyonel süreçlerde sorumluluk alıyorum.
                 </p>
-                <div class="flex space-x-4">
-                    <a href="#dilevreni" class="px-6 py-3 bg-kurumsal-koyu text-white rounded-lg text-sm font-semibold hover:bg-gray-800 transition-colors shadow-lg">
-                        dilevreni.com'u İncele
+                <div class="flex flex-wrap gap-4">
+                    <a href="#deneyim" class="px-6 py-3 bg-brand-dark text-white text-sm font-bold uppercase tracking-wider hover:bg-brand-blue transition-colors text-center">
+                        Özgeçmişi İncele
                     </a>
-                    <a href="#iletisim" class="px-6 py-3 border border-gray-300 text-kurumsal-koyu rounded-lg text-sm font-semibold hover:bg-gray-50 transition-colors">
-                        Bana Ulaşın
+                    <a href="cv.pdf" target="_blank" class="px-6 py-3 bg-brand-blue text-white text-sm font-bold uppercase tracking-wider hover:bg-blue-800 transition-colors flex items-center justify-center">
+                        CV İndir (PDF) 
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    </a>
+                    <a href="#iletisim" class="px-6 py-3 border border-brand-dark text-brand-dark text-sm font-bold uppercase tracking-wider hover:bg-gray-100 transition-colors text-center">
+                        İletişim Kur
                     </a>
                 </div>
             </div>
-            <div class="bg-kurumsal-koyu rounded-xl p-6 shadow-2xl border border-gray-700">
-                <div class="flex space-x-2 mb-4">
-                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                </div>
-                <div class="font-mono text-sm text-gray-300 space-y-2">
-                    <p><span class="text-green-400">~/omer</span> $ cat profile.sh</p>
-                    <p>University: <span class="text-vurgu-mavi">Samsun Üniv.</span></p>
-                    <p>LinkedIn: <span class="text-vurgu-mavi">omerozcn00</span></p>
-                    <p>GitHub: <span class="text-vurgu-mavi">44omerfarukozcan-del</span></p>
-                    <p class="text-green-400 mt-2">~/omer $ <span class="animate-pulse">_</span></p>
+            <div class="md:col-span-5">
+                <div class="bg-brand-dark rounded shadow-lg p-6 border-t-4 border-brand-blue">
+                    <div class="font-mono text-sm text-gray-300 space-y-3">
+                        <div class="text-brand-gray border-b border-gray-700 pb-2 mb-4 text-xs font-bold uppercase tracking-widest">
+                            SYSTEM IDENTIFICATION
+                        </div>
+                        <p><span class="text-blue-400">Name:</span> Ömer Faruk Özcan</p>
+                        <p><span class="text-blue-400">Status:</span> Samsun Üniv. Yazılım Geliştirme (2025)</p>
+                        <p><span class="text-blue-400">Location:</span> Samsun, Türkiye</p>
+                        <p class="pt-4 border-t border-gray-700 mt-4">
+                            <span class="text-blue-400">GitHub:</span> <a href="https://github.com/44omerfarukozcan-del" target="_blank" class="text-white hover:underline">44omerfarukozcan-del</a>
+                        </p>
+                        <p>
+                            <span class="text-blue-400">LinkedIn:</span> <a href="https://www.linkedin.com/in/omerozcn00/" target="_blank" class="text-white hover:underline">omerozcn00</a>
+                        </p>
+                        <p>
+                            <span class="text-blue-400">Terminal</span> <span class="animate-pulse">_</span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <section id="korvex" class="py-24 bg-slate-900 text-white relative border-b border-white/5 overflow-hidden">
-        <div class="absolute top-0 right-0 p-20 opacity-5 text-9xl font-bold select-none">KORVEX</div>
-        <div class="max-w-6xl mx-auto px-6 relative z-10">
-            <div class="flex flex-col md:flex-row gap-12 items-center">
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl font-bold mb-6 text-vurgu-mavi tracking-widest uppercase">Korvex Software</h2>
-                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                        Yazılım dünyasındaki kurumsal yüzüm ve teknoloji üssüm. <strong>omerfarukozcan.info</strong> alan adı üzerinden yayın yapan bu platform, modern web mimarilerini, sunucu taraflı operasyonları ve temiz kod (clean code) prensiplerini tek çatıda topladığım ana merkezdir. 
-                    </p>
-                    <p class="text-sm text-gray-400 mb-8 leading-relaxed">
-                        Sistem mimarisinden veritabanı optimizasyonuna, global ölçekli donanım yönetimlerinden (RTX tabanlı teknik servisler) API entegrasyonlarına kadar tüm profesyonel hizmetlerim Korvex standartları altında yönetilmektedir.
-                    </p>
-                    <a href="https://omerfarukozcan.info/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-vurgu-mavi font-bold hover:underline bg-white/5 px-8 py-4 rounded-full border border-vurgu-mavi/30 shadow-lg hover:bg-vurgu-mavi hover:text-white transition-all">
-                        Korvex Platformuna Git (Yeni Sekme) <span class="ml-3">&rarr;</span>
-                    </a>
-                </div>
-                
-                <div class="md:w-1/2 w-full grid grid-cols-2 gap-4">
-                    <div class="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm text-center">
-                        <div class="text-3xl font-black text-white mb-1">.NET Core</div>
-                        <div class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Ana Mimari</div>
-                    </div>
-                    <div class="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm text-center">
-                        <div class="text-3xl font-black text-vurgu-mavi mb-1">%99.9</div>
-                        <div class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Sistem Uptime</div>
-                    </div>
-                    <div class="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm text-center">
-                        <div class="text-3xl font-black text-white mb-1">N-Tier</div>
-                        <div class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Katmanlı Yapı</div>
-                    </div>
-                    <div class="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm text-center">
-                        <div class="text-3xl font-black text-vurgu-mavi mb-1">Global</div>
-                        <div class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Hizmet Ağı</div>
-                    </div>
-                </div>
+    <section id="deneyim" class="py-24 bg-white border-b border-border-color">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center mb-12">
+                <h2 class="text-3xl font-extrabold text-brand-dark uppercase tracking-tight">Profesyonel Deneyim</h2>
+                <div class="ml-6 flex-grow h-px bg-border-color"></div>
             </div>
-        </div>
-    </section>
-
-    <section id="dilevreni" class="py-24 bg-white border-b border-gray-200">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row gap-16 items-center">
-                <div class="md:w-1/2">
-                    <div class="inline-flex items-center space-x-2 bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full text-xs font-bold mb-6 border border-indigo-100 uppercase tracking-widest">
-                        Featured Project
-                    </div>
-                    <h2 class="text-4xl font-bold text-kurumsal-koyu mb-6 italic tracking-tight">dilevreni.com</h2>
-                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
-                        Dil ve kültür üzerine kurulu interaktif, devasa bir keşif istasyonu. Kullanıcıların aradıkları kavramlara doğrudan ulaşmasını sağlayan <strong>"Dinamik Kod Sistemi"</strong> bu projenin temelini oluşturur.
-                    </p>
-                    <p class="text-sm text-gray-500 leading-relaxed mb-8">
-                        ASP.NET MVC altyapısı kullanılarak sıfırdan kodlanmış, SQL Server ile desteklenen bu platformda; veritabanı tabloları arası (One-to-Many, Many-to-Many) kompleks ilişkiler kusursuz bir şekilde yönetilmektedir. Yönetim paneli üzerinden sürekli güncellenen geniş bir kelime ve kavram havuzuna sahiptir.
-                    </p>
-                    
-                    <a href="https://dilevreni.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-4 bg-kurumsal-koyu text-white rounded-xl text-sm font-bold hover:bg-vurgu-mavi transition-colors shadow-lg w-full justify-center md:w-auto">
-                        dilevreni.com'u Ziyaret Et (Yeni Sekme) <span class="ml-2">&rarr;</span>
-                    </a>
-                </div>
-
-                <div class="md:w-1/2 w-full">
-                    <div class="grid grid-cols-2 gap-4 mb-6">
-                        <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 text-center shadow-sm">
-                            <div class="text-4xl font-black text-indigo-600 mb-2">500+</div>
-                            <div class="text-xs font-bold text-kurumsal-koyu uppercase">Dinamik Kod</div>
-                        </div>
-                        <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 text-center shadow-sm">
-                            <div class="text-4xl font-black text-indigo-600 mb-2">1200+</div>
-                            <div class="text-xs font-bold text-kurumsal-koyu uppercase">Veritabanı Kaydı</div>
-                        </div>
-                        <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 text-center shadow-sm">
-                            <div class="text-4xl font-black text-indigo-600 mb-2">25+</div>
-                            <div class="text-xs font-bold text-kurumsal-koyu uppercase">İçerik Kategorisi</div>
-                        </div>
-                        <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 text-center shadow-sm">
-                            <div class="text-4xl font-black text-indigo-600 mb-2">SQL</div>
-                            <div class="text-xs font-bold text-kurumsal-koyu uppercase">Relational DB</div>
-                        </div>
-                    </div>
-
-                    <div class="bg-kurumsal-koyu p-6 rounded-2xl border border-gray-700 shadow-inner relative overflow-hidden">
-                        <div class="font-mono text-sm text-gray-400 mb-4">// Backend Initialization Log</div>
-                        <div class="space-y-2 font-mono text-xs text-green-400">
-                            <p>> [Core] ASP.NET MVC Pipeline Started</p>
-                            <p>> [DB] Entity Framework Context Linked</p>
-                            <p>> [Data] Indexed 1200+ Words & Codes</p>
-                            <p class="text-white mt-2 font-bold">> STATUS: RUNNING & OPTIMIZED</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="egitim" class="bg-slate-50 border-b border-gray-200 py-24">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-kurumsal-koyu mb-12 text-center md:text-left">Eğitim Kronolojisi</h2>
             
+            <div class="cv-section space-y-12">
+                
+                <div class="relative cv-dot">
+                    <div class="flex flex-col md:flex-row md:justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-dark">Freelance Donanım & Sistem Uzmanı</h3>
+                            <div class="text-brand-blue font-semibold text-sm mt-1">Fiverr (Global Platform)</div>
+                        </div>
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest mt-2 md:mt-0 bg-brand-light px-3 py-1 border border-border-color">Sürekli</span>
+                    </div>
+                    <p class="text-sm leading-relaxed text-justify mt-4">
+                        NVIDIA RTX 5060 donanım gücü altyapısı kullanılarak uluslararası portföydeki müşterilere yüksek performanslı işlem yönetimi sağlandı. Sistem optimizasyon süreçleri, render işlemleri ve ileri seviye teknik destek operasyonları global standartlarda yürütüldü.
+                    </p>
+                </div>
+
+                <div class="relative cv-dot">
+                    <div class="flex flex-col md:flex-row md:justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-dark">Tabela İmalat & Saha Montaj Sorumlusu</h3>
+                            <div class="text-brand-blue font-semibold text-sm mt-1">Reklam & Tanıtım Atölyesi (Özel İşletme)</div>
+                        </div>
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest mt-2 md:mt-0 bg-brand-light px-3 py-1 border border-border-color">Proje Bazlı</span>
+                    </div>
+                    <p class="text-sm leading-relaxed text-justify mt-4">
+                        Açıkhava reklamcılığı ve kurumsal kimlik çalışmaları yürüten reklam atölyesinde üretim sürecine aktif olarak katılım sağlandı. Kurumsal tabela imalatı, dijital baskı/reklam materyallerinin teknik hazırlığı ve bu ürünlerin zorlu saha şartlarında fiziki montaj/kurulum operasyonları bizzat yürütüldü. Mühendislik ve el işçiliği gerektiren alanlarda mekanik disiplin kazanıldı.
+                    </p>
+                </div>
+
+                <div class="relative cv-dot">
+                    <div class="flex flex-col md:flex-row md:justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-dark">Müşteri Temsilcisi / Servis Elemanı</h3>
+                            <div class="text-brand-blue font-semibold text-sm mt-1">Özsüt</div>
+                        </div>
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest mt-2 md:mt-0 bg-brand-light px-3 py-1 border border-border-color">Geçmiş Dönem</span>
+                    </div>
+                    <p class="text-sm leading-relaxed text-justify mt-4">
+                        Hizmet sektörünün dinamik ve yoğun temposu altında kriz yönetimi, müşteri şikayetlerinin çözümü ve sipariş/servis operasyonlarının eksiksiz yürütülmesi sağlandı. Takım çalışmasına uyum ve yüksek baskı altında hızlı inisiyatif alma becerileri geliştirildi.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="yetenekler" class="py-20 bg-brand-dark text-white border-b border-gray-800 shadow-inner">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-2xl font-extrabold uppercase tracking-tight mb-12 text-center text-white">Teknoloji Yığını & Yetkinlikler</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="bg-gray-800/50 p-6 rounded border border-gray-700">
+                    <h4 class="text-brand-blue font-bold tracking-widest uppercase text-xs mb-4 border-b border-gray-600 pb-3 flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg> Backend & Core</h4>
+                    <ul class="space-y-3 text-sm text-gray-300 font-mono">
+                        <li class="flex items-center"><span class="text-blue-400 mr-2">></span> C# / .NET Core</li>
+                        <li class="flex items-center"><span class="text-blue-400 mr-2">></span> ASP.NET MVC</li>
+                        <li class="flex items-center"><span class="text-blue-400 mr-2">></span> Entity Framework</li>
+                        <li class="flex items-center"><span class="text-blue-400 mr-2">></span> N-Tier Architecture</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-800/50 p-6 rounded border border-gray-700">
+                    <h4 class="text-brand-blue font-bold tracking-widest uppercase text-xs mb-4 border-b border-gray-600 pb-3 flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg> Veritabanı</h4>
+                    <ul class="space-y-3 text-sm text-gray-300 font-mono">
+                        <li class="flex items-center"><span class="text-blue-400 mr-2">></span> MS SQL Server</li>
+                        <li class="flex items-center"><span class="text-blue-400 mr-2">></span> Relational DB Design</li>
+                        <li class="flex items-center"><span class="text-blue-400 mr-2">></span> T-SQL & LINQ</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-800/50 p-6 rounded border border-gray-700">
+                    <h4 class="text-brand-blue font-bold tracking-widest uppercase text-xs mb-4 border-b border-gray-600 pb-3 flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg> Frontend & UI</h4>
+                    <ul class="space-y-3 text-sm text-gray-300 font-mono">
+                        <li class="flex items-center"><span class="text-blue-400 mr-2">></span> HTML5 & CSS3</li>
+                        <li class="flex items-center"><span class="text-blue-400 mr-2">></span> Tailwind CSS</li>
+                        <li class="flex items-center"><span class="text-blue-400 mr-2">></span> Bootstrap</li>
+                        <li class="flex items-center"><span class="text-blue-400 mr-2">></span> JavaScript (Temel)</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-800/50 p-6 rounded border border-gray-700">
+                    <h4 class="text-brand-blue font-bold tracking-widest uppercase text-xs mb-4 border-b border-gray-600 pb-3 flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg> Sistem & Araçlar</h4>
+                    <ul class="space-y-3 text-sm text-gray-300 font-mono">
+                        <li class="flex items-center"><span class="text-blue-400 mr-2">></span> Linux OS</li>
+                        <li class="flex items-center"><span class="text-blue-400 mr-2">></span> Network Security</li>
+                        <li class="flex items-center"><span class="text-blue-400 mr-2">></span> Git & GitHub</li>
+                        <li class="flex items-center"><span class="text-blue-400 mr-2">></span> Hardware Op.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projeler" class="py-24 bg-brand-light border-b border-border-color">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center mb-12">
+                <h2 class="text-3xl font-extrabold text-brand-dark uppercase tracking-tight">Platformlar & Projeler</h2>
+                <div class="ml-6 flex-grow h-px bg-border-color"></div>
+            </div>
+
+            <div class="space-y-10">
+                
+                <div class="bg-white border border-border-color flex flex-col md:flex-row overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="md:w-2/5 h-64 md:h-auto bg-gray-50 border-r border-border-color relative cursor-zoom-in flex items-center justify-center p-6" onclick="openModal('korvex.png')">
+                        <div class="absolute inset-0 bg-black/0 hover:bg-black/5 transition-colors duration-300 z-10 flex items-center justify-center opacity-0 hover:opacity-100">
+                            <svg class="w-10 h-10 text-brand-dark bg-white/80 rounded-full p-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                        </div>
+                        <img src="korvex.png" alt="Korvex Software" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="md:w-3/5 p-8 flex flex-col justify-center">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl font-extrabold text-brand-dark uppercase tracking-tight">KORVEX SOFTWARE</h3>
+                            <span class="bg-gray-800 text-white text-[10px] uppercase tracking-widest px-2 py-1">Kurumsal Ağ</span>
+                        </div>
+                        <p class="text-sm text-brand-gray leading-relaxed mb-6 flex-grow">
+                            Yazılım dünyasındaki kurumsal yüzüm ve teknoloji üssüm. Modern web mimarilerini, sunucu taraflı operasyonları ve "clean code" prensiplerini tek çatıda topladığım ana merkez. .NET Core N-Tier katmanlı mimarisi üzerine kurulu sistem, %99.9 uptime hedefiyle global hizmet ağı sağlamaktadır.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-[10px] font-mono bg-gray-100 border border-gray-300 px-2 py-1 text-gray-600">.NET Core</span>
+                            <span class="text-[10px] font-mono bg-gray-100 border border-gray-300 px-2 py-1 text-gray-600">N-Tier Architecture</span>
+                            <span class="text-[10px] font-mono bg-gray-100 border border-gray-300 px-2 py-1 text-gray-600">Clean Code</span>
+                        </div>
+                        <div class="flex flex-wrap gap-6 pt-4 border-t border-border-color">
+                            <a href="https://github.com/44omerfarukozcan-del/Korvex" target="_blank" class="text-brand-dark font-bold text-sm uppercase tracking-wider hover:text-brand-blue flex items-center">
+                                Kaynak Kod <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                            </a>
+                            <a href="https://omerfarukozcan.info/" target="_blank" class="text-brand-blue font-bold text-sm uppercase tracking-wider hover:underline flex items-center">
+                                Sisteme Eriş <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-border-color flex flex-col md:flex-row overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="md:w-2/5 h-64 md:h-auto bg-gray-50 border-r border-border-color relative cursor-zoom-in flex items-center justify-center p-6" onclick="openModal('dıl.png')">
+                        <div class="absolute inset-0 bg-black/0 hover:bg-black/5 transition-colors duration-300 z-10 flex items-center justify-center opacity-0 hover:opacity-100">
+                            <svg class="w-10 h-10 text-brand-dark bg-white/80 rounded-full p-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                        </div>
+                        <img src="dıl.png" alt="Dil Evreni" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="md:w-3/5 p-8 flex flex-col justify-center">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl font-extrabold text-brand-dark uppercase tracking-tight">dilevreni.com</h3>
+                            <span class="bg-brand-blue text-white text-[10px] uppercase tracking-widest px-2 py-1">Canlı Proje</span>
+                        </div>
+                        <p class="text-sm text-brand-gray leading-relaxed mb-6 flex-grow">
+                            Dil ve kültür üzerine kurulu devasa bir keşif istasyonu. Kullanıcıların aradıkları kavramlara doğrudan ulaşmasını sağlayan <strong>"Dinamik Kod Sistemi" (500+ Kod)</strong> ile çalışır. ASP.NET MVC altyapısı ve SQL Server (1200+ Kayıt, 25+ Kategori) veritabanı ile geliştirilmiş, ilişkisel veri yönetimine dayanan kompleks bir platformdur.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-[10px] font-mono bg-gray-100 border border-gray-300 px-2 py-1 text-gray-600">ASP.NET MVC</span>
+                            <span class="text-[10px] font-mono bg-gray-100 border border-gray-300 px-2 py-1 text-gray-600">SQL Server</span>
+                            <span class="text-[10px] font-mono bg-gray-100 border border-gray-300 px-2 py-1 text-gray-600">Dinamik Mimari</span>
+                        </div>
+                        <div class="flex flex-wrap gap-6 pt-4 border-t border-border-color">
+                            <a href="https://github.com/44omerfarukozcan-del/dilevreni.com" target="_blank" class="text-brand-dark font-bold text-sm uppercase tracking-wider hover:text-brand-blue flex items-center">
+                                Kaynak Kod <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                            </a>
+                            <a href="https://dilevreni.com/" target="_blank" class="text-brand-blue font-bold text-sm uppercase tracking-wider hover:underline flex items-center">
+                                Canlı Site <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-border-color flex flex-col md:flex-row overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="md:w-2/5 h-64 md:h-auto bg-gray-50 border-r border-border-color relative cursor-zoom-in flex items-center justify-center p-6" onclick="openModal('book.png')">
+                        <div class="absolute inset-0 bg-black/0 hover:bg-black/5 transition-colors duration-300 z-10 flex items-center justify-center opacity-0 hover:opacity-100">
+                            <svg class="w-10 h-10 text-brand-dark bg-white/80 rounded-full p-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                        </div>
+                        <img src="book.png" alt="Kitap Yönetimi Sistemi" class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="md:w-3/5 p-8 flex flex-col justify-center">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl font-extrabold text-brand-dark uppercase tracking-tight">Kitap Yönetimi Sistemi</h3>
+                            <span class="bg-green-700 text-white text-[10px] uppercase tracking-widest px-2 py-1">Web App</span>
+                        </div>
+                        <p class="text-sm text-brand-gray leading-relaxed mb-6 flex-grow">
+                            C# ve ASP.NET Core MVC kullanılarak geliştirilmiş, yazarların ve kitapların ilişkisel veritabanı mimarisiyle yönetildiği yönetim otomasyonu. Entity Framework Code-First yaklaşımı ile verilerin dinamik olarak eklendiği ve listelendiği CRUD operasyonlarını içeren sağlam bir altyapı.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-[10px] font-mono bg-gray-100 border border-gray-300 px-2 py-1 text-gray-600">ASP.NET Core</span>
+                            <span class="text-[10px] font-mono bg-gray-100 border border-gray-300 px-2 py-1 text-gray-600">Entity Framework</span>
+                            <span class="text-[10px] font-mono bg-gray-100 border border-gray-300 px-2 py-1 text-gray-600">C#</span>
+                        </div>
+                        <div class="flex flex-wrap gap-6 pt-4 border-t border-border-color">
+                            <a href="https://github.com/44omerfarukozcan-del/Kitap-Y-netimi" target="_blank" class="text-brand-dark font-bold text-sm uppercase tracking-wider hover:text-brand-blue flex items-center">
+                                Kaynak Kod <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                            </a>
+                            <a href="http://kitapprojesi.tryasp.net/Book" target="_blank" class="text-brand-blue font-bold text-sm uppercase tracking-wider hover:underline flex items-center">
+                                Canlı Site <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="egitim" class="py-24 bg-white border-b border-border-color">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-16">
-                <div class="relative border-l-2 border-gray-300 pl-8 ml-4 space-y-12">
+                
+                <div>
+                    <div class="flex items-center mb-12">
+                        <h2 class="text-2xl font-extrabold text-brand-dark uppercase tracking-tight">Eğitim & Gelişim</h2>
+                    </div>
                     
-                    <div class="relative">
-                        <div class="absolute -left-[41px] top-1 bg-green-500 w-5 h-5 rounded-full border-4 border-slate-50 shadow-sm"></div>
-                        <h3 class="font-bold text-kurumsal-koyu text-xl mb-1">Samsun Üniversitesi</h3>
-                        <p class="text-vurgu-mavi font-bold text-sm mb-2">Yazılım Geliştirme (2025 - Günümüz)</p>
-                        <p class="text-sm text-gray-600">Akademik eğitimime aktif olarak devam ettiğim, yazılım mimarileri üzerine uzmanlaştığım kurum.</p>
-                    </div>
+                    <div class="cv-section space-y-10">
+                        <div class="relative cv-dot">
+                            <h3 class="text-lg font-bold text-brand-dark">Samsun Üniversitesi</h3>
+                            <div class="text-brand-blue font-semibold text-sm">Yazılım Geliştirme (2025 - Günümüz)</div>
+                            <p class="text-sm text-gray-600 mt-2">Modern web mimarileri, veri yapıları ve yazılım mühendisliği disiplinleri üzerine aktif akademik eğitim.</p>
+                        </div>
 
-                    <div class="relative">
-                        <div class="absolute -left-[41px] top-1 bg-vurgu-mavi w-5 h-5 rounded-full border-4 border-slate-50 shadow-sm"></div>
-                        <h3 class="font-bold text-kurumsal-koyu text-xl mb-3">Lise Eğitimi</h3>
-                        <ul class="space-y-4">
-                            <li class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
-                                <span class="font-bold text-sm text-kurumsal-koyu block">Eğitim Bilimleri Anadolu Lisesi</span>
-                                <span class="text-xs text-gray-500">11. Sınıf (Atakum 3.'lüğü elde edilen dönem)</span>
-                            </li>
-                            <li class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
-                                <span class="font-bold text-sm text-kurumsal-koyu block">Köksal Ersayın Anadolu Lisesi</span>
-                                <span class="text-xs text-gray-500">10. ve 12. Sınıf</span>
-                            </li>
-                            <li class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
-                                <span class="font-bold text-sm text-kurumsal-koyu block">Boğaziçi Lisesi</span>
-                                <span class="text-xs text-gray-500">9. Sınıf</span>
-                            </li>
-                        </ul>
-                    </div>
+                        <div class="relative cv-dot">
+                            <h3 class="text-lg font-bold text-brand-dark">Özel Gelişim Programları</h3>
+                            <div class="mt-3 space-y-3 border border-border-color p-4 bg-brand-light">
+                                <div class="flex flex-col border-b border-gray-200 pb-3">
+                                    <span class="text-sm font-bold text-brand-dark flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-blue mr-2"></span> 42 Türkiye (Piscine/Havuz)</span>
+                                    <span class="text-xs text-gray-600 mt-1 pl-3.5">Pratik ve akran öğrenimine dayalı, dünyanın en prestijli, yoğun yazılım ve algoritma eğitimi kamplarından biri.</span>
+                                </div>
+                                <div class="flex flex-col pt-1">
+                                    <span class="text-sm font-bold text-brand-dark flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-blue mr-2"></span> Siber Vatan Programı</span>
+                                    <span class="text-xs text-gray-600 mt-1 pl-3.5">Kalkınma Ajansı destekli; Linux mimarisi, işletim sistemleri ve Network Security (Ağ Güvenliği) üzerine uygulamalı sektörel eğitim inisiyatifi.</span>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="relative">
-                        <div class="absolute -left-[41px] top-1 bg-gray-400 w-5 h-5 rounded-full border-4 border-slate-50 shadow-sm"></div>
-                        <h3 class="font-bold text-kurumsal-koyu text-xl mb-3">Temel Eğitim Dönemi</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-center text-sm text-gray-700">
-                                <span class="w-2 h-2 rounded-full bg-gray-300 mr-3"></span> <strong>Baruthane Ortaokulu</strong> (6, 7 ve 8. Sınıf)
-                            </li>
-                            <li class="flex items-center text-sm text-gray-700">
-                                <span class="w-2 h-2 rounded-full bg-gray-300 mr-3"></span> <strong>30 Ağustos İmam Hatip Ortaokulu</strong> (5. Sınıf - Voleybol Takımı Dönemi)
-                            </li>
-                            <li class="flex items-center text-sm text-gray-700">
-                                <span class="w-2 h-2 rounded-full bg-gray-300 mr-3"></span> <strong>Kalkancı İlkokulu</strong> (İlkokul)
-                            </li>
-                        </ul>
+                        <div class="relative cv-dot">
+                            <h3 class="text-lg font-bold text-brand-dark">Lise Eğitimi</h3>
+                            <div class="mt-3 space-y-3 border border-border-color p-4 bg-brand-light">
+                                <div class="flex justify-between border-b border-gray-200 pb-2">
+                                    <span class="text-sm font-bold text-brand-dark">Eğitim Bilimleri Anadolu Lisesi</span>
+                                    <span class="text-xs text-gray-500">11. Sınıf</span>
+                                </div>
+                                <div class="flex justify-between border-b border-gray-200 pb-2">
+                                    <span class="text-sm font-bold text-brand-dark">Köksal Ersayın Anadolu Lisesi</span>
+                                    <span class="text-xs text-gray-500">10. ve 12. Sınıf</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-sm font-bold text-brand-dark">Boğaziçi Lisesi</span>
+                                    <span class="text-xs text-gray-500">9. Sınıf</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative cv-dot">
+                            <h3 class="text-lg font-bold text-brand-dark">Temel Eğitim Dönemi</h3>
+                            <ul class="mt-3 space-y-2 text-sm text-gray-600">
+                                <li>• <strong>Baruthane Ortaokulu</strong> (6, 7 ve 8. Sınıf)</li>
+                                <li>• <strong>30 Ağustos İmam Hatip Ortaokulu</strong> (5. Sınıf)</li>
+                                <li>• <strong>Kalkancı İlkokulu</strong></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
                 <div>
-                    <div class="bg-kurumsal-koyu text-white p-10 rounded-3xl shadow-xl sticky top-24">
-                        <h3 class="text-2xl font-bold mb-8 border-b border-gray-700 pb-4 text-vurgu-mavi">Kariyer Sınavları & Hedefler</h3>
-                        <div class="space-y-8">
-                            <div>
-                                <div class="text-xl font-bold mb-2">MSÜ (Milli Savunma Üniv.)</div>
-                                <p class="text-sm text-gray-400">Askeri disiplin ve stratejik vizyon doğrultusunda hazırlık.</p>
+                    <div class="flex items-center mb-12">
+                        <h2 class="text-2xl font-extrabold text-brand-dark uppercase tracking-tight">Kariyer Sınavları & Hedefler</h2>
+                    </div>
+                    
+                    <div class="bg-brand-dark text-white p-8 border-t-4 border-brand-blue sticky top-24">
+                        <div class="space-y-6">
+                            <div class="border-b border-gray-700 pb-4">
+                                <div class="text-sm text-brand-blue font-bold tracking-widest uppercase mb-1">Stratejik Hedef</div>
+                                <div class="text-lg font-bold mb-1">MSÜ (Milli Savunma Üniv.)</div>
+                                <p class="text-sm text-gray-400">Askeri disiplin, kriz yönetimi ve stratejik vizyon doğrultusunda fiziksel ve mental hazırlık.</p>
+                            </div>
+                            <div class="border-b border-gray-700 pb-4">
+                                <div class="text-sm text-brand-blue font-bold tracking-widest uppercase mb-1">Akademik Hedef</div>
+                                <div class="text-lg font-bold mb-1">YKS & Akademik Derece</div>
+                                <p class="text-sm text-gray-400">Analitik düşünce ve problem çözme yeteneği gerektiren sınavlarda yüksek başarı odağı.</p>
+                            </div>
+                            <div class="border-b border-gray-700 pb-4">
+                                <div class="text-sm text-brand-blue font-bold tracking-widest uppercase mb-1">Kurumsal Hedef</div>
+                                <div class="text-lg font-bold mb-1">KPSS & Devlet Hizmeti</div>
+                                <p class="text-sm text-gray-400">Kamusal alanda teknik yetkinliği belgeleme ve mühendislik kadrosunda memuriyet.</p>
                             </div>
                             <div>
-                                <div class="text-xl font-bold mb-2">YKS Hedefi</div>
-                                <p class="text-sm text-gray-400">Analitik düşünce gerektiren YKS sınavında yüksek başarı odağı.</p>
+                                <div class="text-sm text-brand-blue font-bold tracking-widest uppercase mb-1">Girişimcilik Vizyonu</div>
+                                <div class="text-lg font-bold mb-1">Global İşletme</div>
+                                <p class="text-sm text-gray-400">Korvex mimarisi üzerine inşa edilmiş kendi yazılım şirketimi kurup uluslararası pazara açılmak.</p>
                             </div>
-                            <div>
-                                <div class="text-xl font-bold mb-2">KPSS</div>
-                                <p class="text-sm text-gray-400">Kamusal alanda teknik yetkinliği belgeleme ve memuriyet hedefi.</p>
-                                </div>
-                            <div>
-                                <div class="text-xl font-bold mb-2">İŞ HAYATI</div>
-                                <p class="text-sm text-gray-400">Kendi şirketimi kurup kendi işlerim ile dünyaya açılmak.</p>
-                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="spor" class="py-24 bg-brand-light border-b border-border-color">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-brand-dark uppercase tracking-tight mb-4">Saha Disiplini & Sportif Başarılar</h2>
+                <p class="text-brand-gray max-w-2xl mx-auto">
+                    Masa başındaki mühendislik yeteneğimin temeli; sahalarda, kulüplerde ve bireysel idmanlarda kazandığım rekabetçi ruh, takım çalışması ve yüksek odaklanma becerilerine dayanır.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white border border-border-color p-8 flex items-center shadow-sm">
+                    <div class="w-16 h-16 bg-gray-100 flex items-center justify-center mr-6 border border-gray-200">
+                        <svg class="w-8 h-8 text-brand-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-brand-blue uppercase tracking-widest mb-1">Samsun Geneli</div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-2">Oryantiring İl Birincisi</h3>
+                        <p class="text-sm text-gray-600">Ortaokul döneminde kazanılan şampiyonluk. Harita okuma, yön bulma, fiziksel kondisyon ve kriz anında stratejik karar verme yeteneği.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-border-color p-8 flex items-center shadow-sm">
+                    <div class="w-16 h-16 bg-gray-100 flex items-center justify-center mr-6 border border-gray-200">
+                        <svg class="w-8 h-8 text-brand-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-brand-blue uppercase tracking-widest mb-1">2022 Yılı</div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-2">Futsal Atakum 3.'lüğü</h3>
+                        <p class="text-sm text-gray-600 mb-3">11. Sınıf öğrencisiyken Eğitim Bilimleri Anadolu Lisesi takımıyla kazanılan ilçe derecesi. Saha içi liderlik ve takım koordinasyonu.</p>
+                        <a href="https://www.samsungazetesi.com/egitim-bilimleri-anadolu-lisesinden-guzel-baslangic" target="_blank" class="text-brand-blue font-bold text-xs uppercase tracking-wider hover:underline">Haber Bağlantısı &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-lg font-bold text-brand-dark uppercase tracking-tight mb-6 border-b border-border-color pb-2">Takım Kariyeri (12+ Yıl)</h3>
+                    <ul class="grid grid-cols-2 gap-4">
+                        <li class="bg-white border border-border-color p-4 text-center font-bold text-sm text-brand-gray">Samsun Gençlik Spor</li>
+                        <li class="bg-white border border-border-color p-4 text-center font-bold text-sm text-brand-gray">Fenerspor</li>
+                        <li class="bg-white border border-border-color p-4 text-center font-bold text-sm text-brand-gray">Türk Telekomspor</li>
+                        <li class="bg-white border border-border-color p-4 text-center font-bold text-sm text-brand-gray">Cedit Ilıca Spor</li>
+                        <li class="bg-brand-dark text-white border border-brand-dark p-4 text-center font-bold text-sm col-span-2">Okul Voleybol Takımı (5. Sınıf)</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold text-brand-dark uppercase tracking-tight mb-6 border-b border-border-color pb-2">Bireysel Disiplinler</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center bg-white p-4 border border-border-color">
+                            <span class="font-bold text-brand-dark">Okçuluk</span>
+                            <span class="text-xs text-gray-500">Nefes Kontrolü & Odaklanma</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white p-4 border border-border-color">
+                            <span class="font-bold text-brand-dark">Masa Tenisi</span>
+                            <span class="text-xs text-gray-500">El-Göz Koordinasyonu</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white p-4 border border-border-color">
+                            <span class="font-bold text-brand-dark">Badminton</span>
+                            <span class="text-xs text-gray-500">Çeviklik & Kondisyon</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white p-4 border border-border-color">
+                            <span class="font-bold text-brand-dark">Vücut Geliştirme (Fitness)</span>
+                            <span class="text-xs text-gray-500">Fiziksel & Mental Direnç</span>
                         </div>
                     </div>
                 </div>
@@ -257,109 +485,65 @@
         </div>
     </section>
 
-    <section id="spor" class="bg-white py-24">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-kurumsal-koyu mb-4 text-center">Sportif Başarılar & Disiplin</h2>
-            <p class="mb-16 text-gray-500 text-center max-w-2xl mx-auto">Masadaki mühendislik yeteneğimin temeli, sahalarda kazandığım rekabetçi ruh, takım çalışması ve bireysel odaklanma becerilerine dayanır.</p>
-            
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="bg-amber-50 p-8 rounded-3xl border border-amber-200 shadow-sm flex flex-col justify-center items-center text-center">
-                    <div class="text-6xl mb-4">🥇</div>
-                    <h3 class="font-bold text-kurumsal-koyu text-2xl mb-2">Oryantiring İl Birincisi</h3>
-                    <p class="text-sm text-amber-800">Ortaokul döneminde Samsun genelinde kazanılan şampiyonluk. Yön bulma ve stratejik karar verme yeteneği.</p>
+    <section id="iletisim" class="bg-brand-dark py-20 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-10 md:mb-0 text-center md:text-left">
+                    <h2 class="text-3xl font-extrabold uppercase tracking-tight mb-4">Ağ Bağlantıları</h2>
+                    <p class="text-gray-400 max-w-md">Kurumsal iletişim, proje talepleri veya teknik işbirlikleri için profesyonel ağlar üzerinden ulaşabilirsiniz.</p>
                 </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://www.linkedin.com/in/omerozcn00/" target="_blank" class="flex items-center px-6 py-4 border border-gray-600 hover:border-white hover:bg-white hover:text-brand-dark transition-all group min-w-[200px]">
+                        <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        <span class="font-bold text-sm tracking-widest">LINKEDIN</span>
+                    </a>
+                    
+                    <a href="https://github.com/44omerfarukozcan-del" target="_blank" class="flex items-center px-6 py-4 border border-gray-600 hover:border-white hover:bg-white hover:text-brand-dark transition-all group min-w-[200px]">
+                        <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                        <span class="font-bold text-sm tracking-widest">GITHUB</span>
+                    </a>
 
-                <div class="bg-blue-50 p-8 rounded-3xl border border-blue-200 shadow-sm">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="text-4xl">🏆</div>
-                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">2022</span>
-                    </div>
-                    <h3 class="font-bold text-kurumsal-koyu text-2xl mb-4">Futsal Atakum 3.'lüğü</h3>
-                    <p class="text-sm text-gray-700 mb-6">11. Sınıf öğrencisiyken Eğitim Bilimleri Anadolu Lisesi takımıyla kazanılan ilçe derecesi.</p>
-                    <a href="https://www.samsungazetesi.com/egitim-bilimleri-anadolu-lisesinden-guzel-baslangic" target="_blank" rel="noopener noreferrer" class="inline-block bg-vurgu-mavi text-white text-xs font-bold px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                        Samsun Gazetesi Haberini Oku (Yeni Sekme) &rarr;
+                    <a href="https://www.instagram.com/_omerozcn_/" target="_blank" class="flex items-center px-6 py-4 border border-gray-600 hover:border-white hover:bg-white hover:text-brand-dark transition-all group min-w-[200px]">
+                        <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        <span class="font-bold text-sm tracking-widest">INSTAGRAM</span>
                     </a>
                 </div>
             </div>
-
-            <div class="bg-slate-50 p-8 rounded-3xl border border-gray-200 mb-12">
-                <h3 class="font-bold text-kurumsal-koyu text-xl mb-6 flex items-center">
-                    <span class="text-3xl mr-3">⚽</span> Takım Sporları Kariyeri & Kulüp Geçmişi
-                </h3>
-                <p class="text-sm text-gray-600 mb-6">Toplamda <strong>5 yıl boyunca okul takımlarında</strong> görev aldım. Bunun haricinde takım ruhunu profesyonel seviyeye taşıdığım lisanslı kulüpler ve takımlar:</p>
-                <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-                    <div class="bg-white p-4 rounded-xl border border-gray-200 text-center shadow-sm">
-                        <div class="font-bold text-xs text-kurumsal-koyu uppercase">Samsun Gençlik Spor</div>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl border border-gray-200 text-center shadow-sm">
-                        <div class="font-bold text-xs text-kurumsal-koyu uppercase">Fenerspor</div>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl border border-gray-200 text-center shadow-sm">
-                        <div class="font-bold text-xs text-kurumsal-koyu uppercase">Türk Telekomspor</div>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl border border-gray-200 text-center shadow-sm">
-                        <div class="font-bold text-xs text-kurumsal-koyu uppercase">Cedit Ilıca Spor</div>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl border border-vurgu-mavi text-center shadow-sm">
-                        <div class="font-bold text-xs text-vurgu-mavi uppercase">Voleybol Takımı (5. Sınıf)</div>
-                    </div>
-                </div>
+            
+            <div class="mt-20 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-500 font-mono tracking-widest uppercase">
+                <div>&copy; 2026 ÖMER FARUK ÖZCAN | KORVEX FOUNDATION</div>
+                <div class="mt-4 md:mt-0">TÜM HAKLARI SAKLIDIR. SYSTEM ONLINE.</div>
             </div>
-
-            <div>
-                <h3 class="font-bold text-kurumsal-koyu text-xl mb-6 flex items-center justify-center">
-                    Bireysel Sporlar & Disiplinler
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="flex items-center p-6 bg-white rounded-2xl shadow-sm border border-gray-200 hover:border-vurgu-mavi transition-colors">
-                        <div class="w-14 h-14 bg-red-50 text-3xl flex items-center justify-center rounded-xl mr-4">🏹</div>
-                        <div>
-                            <div class="font-bold text-lg text-kurumsal-koyu">Okçuluk</div>
-                            <div class="text-xs text-gray-500">Odaklanma, nefes kontrolü ve hedefe kilitlenme.</div>
-                        </div>
-                    </div>
-                    <div class="flex items-center p-6 bg-white rounded-2xl shadow-sm border border-gray-200 hover:border-vurgu-mavi transition-colors">
-                        <div class="w-14 h-14 bg-blue-50 text-3xl flex items-center justify-center rounded-xl mr-4">🏓</div>
-                        <div>
-                            <div class="font-bold text-lg text-kurumsal-koyu">Masa Tenisi</div>
-                            <div class="text-xs text-gray-500">El-göz koordinasyonu ve anlık karar verme hızı.</div>
-                        </div>
-                    </div>
-                    <div class="flex items-center p-6 bg-white rounded-2xl shadow-sm border border-gray-200 hover:border-vurgu-mavi transition-colors">
-                        <div class="w-14 h-14 bg-green-50 text-3xl flex items-center justify-center rounded-xl mr-4">🏸</div>
-                        <div>
-                            <div class="font-bold text-lg text-kurumsal-koyu">Badminton</div>
-                            <div class="text-xs text-gray-500">Çeviklik, kondisyon ve sürekli hareket kabiliyeti.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <section id="iletisim" class="bg-slate-50 border-t border-gray-200 max-w-6xl mx-auto px-6 py-24 text-center">
-        <h2 class="text-3xl font-bold text-kurumsal-koyu mb-4 italic">Bana Ulaşın</h2>
-        <p class="text-gray-500 mb-12">Yeni projeler, iş birlikleri veya iletişim için sosyal medya hesaplarım:</p>
-        
-        <div class="flex flex-wrap justify-center gap-6">
-            <a href="https://www.linkedin.com/in/omerozcn00/" target="_blank" rel="noopener noreferrer" class="flex items-center px-8 py-4 bg-white border border-gray-300 rounded-2xl hover:border-vurgu-mavi hover:shadow-lg transition-all group">
-                <svg class="w-6 h-6 mr-3 text-gray-400 group-hover:text-vurgu-mavi" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                <span class="font-bold text-kurumsal-koyu">omerozcn00</span>
-            </a>
-            <a href="https://github.com/44omerfarukozcan-del" target="_blank" rel="noopener noreferrer" class="flex items-center px-8 py-4 bg-white border border-gray-300 rounded-2xl hover:border-black hover:shadow-lg transition-all group">
-                <svg class="w-6 h-6 mr-3 text-gray-400 group-hover:text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                <span class="font-bold text-kurumsal-koyu">44omerfarukozcan-del</span>
-            </a>
-        </div>
-    </section>
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/90 flex items-center justify-center p-4 opacity-0 transition-opacity duration-300" onclick="closeModal()">
+        <span class="absolute top-6 right-8 text-white text-4xl font-light cursor-pointer hover:text-gray-300">&times;</span>
+        <img id="modalImage" src="" class="max-w-full max-h-[90vh] object-contain rounded shadow-2xl cursor-zoom-out" onclick="event.stopPropagation(); closeModal();">
+    </div>
 
-    <footer class="bg-white border-t border-gray-200 py-12">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm font-semibold text-gray-400 uppercase tracking-widest text-[10px]">
-            <div class="italic text-kurumsal-koyu font-black">Ömer Faruk Özcan | Korvex Foundation</div>
-            <div class="mt-4 md:mt-0">&copy; 2026 | Tüm Hakları Saklıdır.</div>
-        </div>
-    </footer>
+    <script>
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+
+        function openModal(src) {
+            modalImg.src = src;
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.classList.add('opacity-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+    </script>
 
 </body>
 </html>
